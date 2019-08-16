@@ -150,7 +150,6 @@ void prepare_paxos_message(struct rte_mbuf *created_pkt, uint16_t port,
   size_t ip_pkt_size = sizeof(struct ipv4_hdr) + sizeof(struct udp_hdr) + data_size;
   size_t whole_pkt_size = sizeof(struct ether_hdr) + ip_pkt_size;
 
-  printf("dgram len %lu data size %lu, app_offset %lu, ip_pkt_size %lu, pkt size %lu", dgram_len, data_size, app_offset, whole_pkt_size);
   set_udp_hdr_sockaddr_in(udp, src, dst, dgram_len);
   udp->dgram_len = rte_cpu_to_be_16(l4_len);
   set_ipv4_hdr(ip, IPPROTO_UDP, src->sin_addr.s_addr, dst->sin_addr.s_addr, ip_pkt_size);

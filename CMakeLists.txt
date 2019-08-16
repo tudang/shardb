@@ -9,3 +9,4 @@ find_package(RocksDB REQUIRED)
 find_package(DPDK REQUIRED)
 
 add_subdirectory(client)
+add_subdirectory(server)

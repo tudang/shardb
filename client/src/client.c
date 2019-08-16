@@ -207,7 +207,7 @@ int main(int argc, char *argv[]) {
 			continue;
 		}
     printf("Lcore %u submits\n", lcore );
-		submit_bulk(worker_id, 1, lp, val, sizeof(val)); // sizeof in order to always be the same instead of strlen
+		submit_bulk(worker_id, 4, lp, val, sizeof(val)); // sizeof in order to always be the same instead of strlen
 
 		worker_id++;
 		if (worker_id == n_workers)

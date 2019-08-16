@@ -63,9 +63,10 @@ static struct rte_eth_conf port_conf = {
 static void
 app_assign_worker_ids(void)
 {
-    uint32_t lcore, worker_id=0;
+    uint32_t lcore, worker_id;
 
     /* Assign ID for each worker */
+    worker_id = 0;
     for (lcore = 0; lcore < APP_MAX_LCORES; lcore++)
     {
         struct app_lcore_params_worker *lp_worker = &app.lcore_params[lcore].worker;
@@ -557,6 +558,7 @@ app_init_nics(void)
 
 	check_all_ports_link_status(APP_MAX_NIC_PORTS, (~0x0));
 }
+
 
 void app_set_worker_callback(worker_cb worker_callback) {
   uint32_t lcore;
